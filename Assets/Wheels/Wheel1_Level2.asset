@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527043eccbd30a54e86c4d96fff7bee7, type: 3}
   m_Name: Wheel1_Level2
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 1, a: 1}
-  sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 5030533844001076196, guid: 1d2a220e51c17974b8b5149aa0137dbe, type: 3}
   curve:
     serializedVersion: 2
     m_Curve:

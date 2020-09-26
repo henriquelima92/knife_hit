@@ -5,7 +5,9 @@ using UnityEngine;
 public class WheelController : MonoBehaviour
 {
     [SerializeField]
-    public SpriteRenderer wheelSpriteRenderer;
+    private Transform wheelHolder;
+    [SerializeField]
+    private GameObject wheel;
     [SerializeField] 
     private List<WheelAsset> wheelLevels;
     [SerializeField]
@@ -33,13 +35,13 @@ public class WheelController : MonoBehaviour
     private void StopLevel()
     {
         StopAllCoroutines();
+        Destroy(wheel);
     }
 
     private void StartLevel(int levelIndex)
     {
-        wheelSpriteRenderer.transform.eulerAngles = Vector3.zero;
-        wheelSpriteRenderer.color = wheelLevels[levelIndex].color;
-        wheelSpriteRenderer.sprite = wheelLevels[levelIndex].sprite;
+        wheel = Instantiate(wheelLevels[levelIndex].prefab, Vector3.zero, Quaternion.identity);
+        wheel.transform.SetParent(wheelHolder);
         StartCoroutine(Movement(levelIndex));
     }
     private IEnumerator Movement(int levelIndex)
@@ -48,7 +50,7 @@ public class WheelController : MonoBehaviour
         while (true)
         {
             movementTime += Time.deltaTime;
-            wheelSpriteRenderer.transform.eulerAngles = new Vector3(0f, 0f, wheelLevels[levelIndex].curve.Evaluate(movementTime));
+            wheel.transform.eulerAngles = new Vector3(0f, 0f, wheelLevels[levelIndex].curve.Evaluate(movementTime));
             yield return null;
         }
     }
