@@ -34,7 +34,7 @@ public class WheelController : MonoBehaviour
     }
     private void StopLevel()
     {
-        StopAllCoroutines();
+        StopCoroutine(Movement(currentLevel));
         Destroy(wheel);
     }
 
