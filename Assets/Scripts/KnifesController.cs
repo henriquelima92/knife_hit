@@ -22,6 +22,11 @@ public class KnifesController : MonoBehaviour
         currentKnifeObject = Instantiate(knife, transform.position, Quaternion.identity);
         currentKnife = currentKnifeObject.GetComponent<Knife>();
     }
+    public void ResetGame()
+    {
+        if (currentKnifeObject != null)
+            Destroy(currentKnifeObject);
+    }
     public void Setup(int count)
     {
         levelKnifesCount = count;

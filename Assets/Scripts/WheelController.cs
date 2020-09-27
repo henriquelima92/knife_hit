@@ -11,18 +11,14 @@ public class WheelController : MonoBehaviour
     private Transform wheelHolder;
     [SerializeField]
     private GameObject wheel;
-    [SerializeField] 
-    private List<LevelAsset> wheelLevels;
     [SerializeField]
-    private int levelIndex;
+    private LevelSelector levelSelector;
+    [SerializeField]
+    private LevelAsset currentLevel;
 
-    public int GetLevelsCount()
+    public int GetLevelKnifes()
     {
-        return wheelLevels.Count > 0 ? wheelLevels.Count : 0;
-    }
-    public int GetLevelKnifes(int levelIndex)
-    {
-        return wheelLevels[levelIndex].knifesCount;
+        return currentLevel.knifesCount;
     }
     public void StopWheel(bool destroy)
     {
@@ -32,27 +28,27 @@ public class WheelController : MonoBehaviour
     }
     public void StartWheel(int levelIndex)
     {
-        this.levelIndex = levelIndex;
+        currentLevel = levelSelector.GetRandomLevel(levelIndex);
         attachedKnifes = 0;
-        wheel = Instantiate(wheelLevels[levelIndex].wheelPrefab, transform.position, Quaternion.identity);
+        wheel = Instantiate(currentLevel.wheelPrefab, transform.position, Quaternion.identity);
         wheel.transform.SetParent(wheelHolder);
-        StartCoroutine(Movement(levelIndex));
+        StartCoroutine(Movement());
     }
     public void AttachKnife()
     {
         attachedKnifes += 1;
-        if(attachedKnifes == wheelLevels[levelIndex].knifesCount)
+        if(attachedKnifes == currentLevel.knifesCount)
         {
             LevelController.Instance.WinLevel();
         }
     }
-    private IEnumerator Movement(int levelIndex)
+    private IEnumerator Movement()
     {
         float movementTime = 0f;
         while (true)
         {
             movementTime += Time.deltaTime;
-            wheel.transform.eulerAngles = new Vector3(0f, 0f, wheelLevels[levelIndex].curve.Evaluate(movementTime));
+            wheel.transform.eulerAngles = new Vector3(0f, 0f, currentLevel.curve.Evaluate(movementTime));
             yield return null;
         }
     }

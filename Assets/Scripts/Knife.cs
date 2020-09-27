@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Knife : MonoBehaviour
 {
-    public Action OnHit;
-
     [SerializeField]
     private float speed = 15f;
     [SerializeField]
