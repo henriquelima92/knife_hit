@@ -7,4 +7,5 @@ public class LevelAsset : ScriptableObject
     public GameObject wheelPrefab;
     public AnimationCurve curve;
     public int knifesCount;
+    public string bossName;
 }

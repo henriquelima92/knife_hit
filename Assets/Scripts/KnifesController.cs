@@ -14,6 +14,7 @@ public class KnifesController : MonoBehaviour
     [SerializeField]
     private int knifesCount = 0;
 
+
     private GameObject currentKnifeObject;
     private Knife currentKnife;
 

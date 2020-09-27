@@ -15,7 +15,19 @@ public class WheelController : MonoBehaviour
     private LevelSelector levelSelector;
     [SerializeField]
     private LevelAsset currentLevel;
+    [SerializeField]
+    private int totalKnifesHit = 0;
 
+    public void ResetGame()
+    {
+        totalKnifesHit = 0;
+        TopPanelController.Instance.SetTotalKnifesHit(totalKnifesHit);
+        StopWheel(true);
+    }
+    public string GetBossLevelName()
+    {
+        return currentLevel.bossName;
+    }
     public int GetLevelKnifes()
     {
         return currentLevel.knifesCount;
@@ -36,6 +48,8 @@ public class WheelController : MonoBehaviour
     }
     public void AttachKnife()
     {
+        totalKnifesHit += 1;
+        TopPanelController.Instance.SetTotalKnifesHit(totalKnifesHit);
         attachedKnifes += 1;
         if(attachedKnifes == currentLevel.knifesCount)
         {

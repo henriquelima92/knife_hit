@@ -8,6 +8,8 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     private int currentLevel = 0;
     [SerializeField]
+    private int totalLevels = 0;
+    [SerializeField]
     private KnifesController knifesController;
     [SerializeField]
     private WheelController wheelController;
@@ -29,14 +31,20 @@ public class LevelController : MonoBehaviour
     private void ResetGame()
     {
         currentLevel = 0;
+        totalLevels = 0;
         knifesController.ResetGame();
-        wheelController.StopWheel(true);
+        wheelController.ResetGame();
         SetupLevel();
     }
     private void SetupLevel()
     {
         wheelController.StartWheel(currentLevel);
         knifesController.Setup(wheelController.GetLevelKnifes());
+        if (currentLevel != 4)
+            TopPanelController.Instance.SetLevelText(totalLevels + 1);
+        else
+            TopPanelController.Instance.SetBossLevelText(wheelController.GetBossLevelName());
+        TopPanelController.Instance.SetLevels(currentLevel + 1);
     }
     private void NextLevel()
     {
@@ -45,7 +53,8 @@ public class LevelController : MonoBehaviour
             currentLevel += 1;
         else
             currentLevel = 0;
-        
+
+        totalLevels += 1;
         SetupLevel();
     }
     private void Inputs()

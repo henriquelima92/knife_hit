@@ -39,3 +39,4 @@ MonoBehaviour:
     m_PostInfinity: 0
     m_RotationOrder: 4
   knifesCount: 11
+  bossName: Strawberry
