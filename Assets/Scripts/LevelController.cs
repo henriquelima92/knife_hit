@@ -19,17 +19,16 @@ public class LevelController : MonoBehaviour
     {
         Instance = this;
     }
-    private void Start()
-    {
-        ResetGame();
-    }
     private void Update()
     {
         Inputs();
     }
 
-    private void ResetGame()
+    public void ResetGame()
     {
+        knifesController.gameObject.SetActive(true);
+        wheelController.gameObject.SetActive(true);
+
         currentLevel = 0;
         totalLevels = 0;
         knifesController.ResetGame();
