@@ -19,22 +19,30 @@ public class Knife : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        hasHit = true;
-        StopAllCoroutines();
-        int hitLayerIndex = collision.gameObject.layer;
-
+        int hitLayerIndex = collision.contacts[0].collider.gameObject.layer;
         if (hitLayerIndex == LayerMask.NameToLayer("Wheel"))
         {
             transform.SetParent(collision.transform);
             collision.transform.parent.GetComponent<WheelController>().AttachKnife();
+            hasHit = true;
+            StopAllCoroutines();
         }
-        else if(hitLayerIndex == LayerMask.NameToLayer("Knife"))
+        else if (hitLayerIndex == LayerMask.NameToLayer("Knife"))
         {
-            LevelController.Instance.LooseLevel();
+            transform.SetParent(collision.transform);
+            hasHit = true;
+            StopAllCoroutines();
+            StartCoroutine(Utilities.StartMethodWithDelay(2f, () =>
+            {
+                LevelController.Instance.LooseLevel();    
+                Destroy(gameObject);
+            })); 
         }
+        
         else if (hitLayerIndex == LayerMask.NameToLayer("Bonus"))
         {
-            //bonus collected event
+            LevelController.Instance.SetBonus();
+            Destroy(collision.gameObject);
         }
     }
 }

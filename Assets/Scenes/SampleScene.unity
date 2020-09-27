@@ -389,10 +389,14 @@ MonoBehaviour:
   levelSelector:
     level1:
       levels:
-      - {fileID: 11400000, guid: c8877b39bae1e714f8ec02a1b41f986d, type: 2}
+      - {fileID: 11400000, guid: 3400e5ab5da9d0c499d1d2d2c607099a, type: 2}
     level2:
       levels:
-      - {fileID: 11400000, guid: c8877b39bae1e714f8ec02a1b41f986d, type: 2}
+      - {fileID: 11400000, guid: 3477695626f9b4441ade5cd452b68963, type: 2}
+      - {fileID: 11400000, guid: 5f59d7acb4653b3479dadb4faeb26e93, type: 2}
+      - {fileID: 11400000, guid: 3400e5ab5da9d0c499d1d2d2c607099a, type: 2}
+      - {fileID: 11400000, guid: 79d09a4478dad2a4e8039d05ae5364d8, type: 2}
+      - {fileID: 11400000, guid: 2e0c5d74536e9074cb4ebb8681a8400b, type: 2}
     level3:
       levels:
       - {fileID: 11400000, guid: c8877b39bae1e714f8ec02a1b41f986d, type: 2}
@@ -1153,6 +1157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   totalLevels: 0
+  totalBonus: 0
   knifesController: {fileID: 2066424210}
   wheelController: {fileID: 347140954}
 --- !u!4 &708566543
@@ -3022,6 +3027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1948032256}
   - component: {fileID: 1948032257}
+  - component: {fileID: 1948032258}
   m_Layer: 5
   m_Name: PersistenceInfo
   m_TagString: Untagged
@@ -3058,6 +3064,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948032255}
   m_CullTransparentMesh: 0
+--- !u!114 &1948032258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948032255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038bed3303516494d916d98d45e51ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalBonus: {fileID: 1054798067}
 --- !u!114 &1949574999 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4701866278826927450, guid: f20cfc940cd181e42b3b24d33c023808,

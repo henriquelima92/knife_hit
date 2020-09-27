@@ -10,6 +10,8 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     private int totalLevels = 0;
     [SerializeField]
+    private int totalBonus = 0;
+    [SerializeField]
     private KnifesController knifesController;
     [SerializeField]
     private WheelController wheelController;
@@ -21,11 +23,22 @@ public class LevelController : MonoBehaviour
     {
         Instance = this;
     }
+    private void Start()
+    {
+        totalBonus = DataStorage.LoadIntData("Bonus");
+    }
+
     private void Update()
     {
         Inputs();
     }
 
+    public void SetBonus()
+    {
+        totalBonus += 1;
+        DataStorage.SaveIntData("Bonus", totalBonus);
+        PersistenceInfoController.Instance.SetBonus(totalBonus);
+    }
     public void ResetGame()
     {
         knifesController.gameObject.SetActive(true);
@@ -34,7 +47,7 @@ public class LevelController : MonoBehaviour
         currentLevel = 0;
         totalLevels = 0;
         hasLost = false;
-        knifesController.ResetGame();
+        knifesController.DestroyKnifes();
         wheelController.ResetGame();
         SetupLevel();
     }
@@ -81,7 +94,6 @@ public class LevelController : MonoBehaviour
         CanvasController.Instance.ShowDefeatMenu(totalLevels+1);
         DataStorage.SaveIntData("Levels", totalLevels + 1);
         wheelController.LooseGame();
-        knifesController.ResetGame();
-        knifesController.Stop();
+        knifesController.DestroyKnifes();
     }
 }
