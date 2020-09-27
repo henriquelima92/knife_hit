@@ -5,7 +5,7 @@ public class CanvasController : MonoBehaviour
     public static CanvasController Instance;
 
     [SerializeField]
-    private GameObject mainMenu;
+    private MainMenuController mainMenu;
     [SerializeField]
     private GameObject defeatMenu;
     [SerializeField]
@@ -16,17 +16,22 @@ public class CanvasController : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
+    private void Start()
+    {
+        mainMenu.SetMainMenu();
+    }
 
     public void ShowDefeatMenu(int totalLevels)
     {
         defeatMenu.SetActive(true);
         levelUI.SetActive(false);
-        DefeatMenuController.Instance.SetLevelsDefeatMenu(totalLevels + 1);
+        DefeatMenuController.Instance.SetLevelsDefeatMenu(totalLevels);
     }
     public void HomeButton()
     {
         defeatMenu.SetActive(false);
-        mainMenu.SetActive(true);
+        mainMenu.gameObject.SetActive(true);
+        mainMenu.SetMainMenu();
     }
     public void RestartButton()
     {
@@ -37,7 +42,7 @@ public class CanvasController : MonoBehaviour
 
     public void PlayButton()
     {
-        mainMenu.SetActive(false);
+        mainMenu.gameObject.SetActive(false);
         levelUI.gameObject.SetActive(true);
         LevelController.Instance.ResetGame();
     }

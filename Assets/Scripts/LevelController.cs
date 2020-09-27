@@ -78,7 +78,8 @@ public class LevelController : MonoBehaviour
     public void LooseLevel()
     {
         hasLost = true;
-        CanvasController.Instance.ShowDefeatMenu(totalLevels);
+        CanvasController.Instance.ShowDefeatMenu(totalLevels+1);
+        DataStorage.SaveIntData("Levels", totalLevels + 1);
         wheelController.LooseGame();
         knifesController.ResetGame();
         knifesController.Stop();

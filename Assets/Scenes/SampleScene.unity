@@ -2907,7 +2907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbe2b035ed243f479597b95127f579f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 2128531810}
+  mainMenu: {fileID: 2128531813}
   defeatMenu: {fileID: 1496362054}
   levelUI: {fileID: 617705099}
 --- !u!1 &1857050683
@@ -3211,6 +3211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2128531811}
   - component: {fileID: 2128531812}
+  - component: {fileID: 2128531813}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -3247,3 +3248,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128531810}
   m_CullTransparentMesh: 0
+--- !u!114 &2128531813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128531810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c35a2eafee3744fb60abb8debd77ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLevel: {fileID: 1572894205}
+  maxScore: {fileID: 1068190993}

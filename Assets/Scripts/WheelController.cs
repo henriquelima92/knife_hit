@@ -20,7 +20,8 @@ public class WheelController : MonoBehaviour
 
     public void LooseGame()
     {
-        DefeatMenuController.Instance.SetKnifesDefeatMenu(totalKnifesHit);
+        DefeatMenuController.Instance.SetKnifesDefeatMenu(totalKnifesHit-1);
+        DataStorage.SaveIntData("Knifes", totalKnifesHit-1);
         StopWheel(true);
     }
     public void ResetGame()

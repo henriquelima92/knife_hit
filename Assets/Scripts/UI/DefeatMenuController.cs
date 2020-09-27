@@ -22,7 +22,7 @@ public class DefeatMenuController : MonoBehaviour
 
     public void SetKnifesDefeatMenu(int knifes)
     {
-        hitKnifesText.text = (knifes-1).ToString();
+        hitKnifesText.text = knifes.ToString();
     }
     public void SetLevelsDefeatMenu(int level)
     {
