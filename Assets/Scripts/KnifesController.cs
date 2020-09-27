@@ -31,6 +31,7 @@ public class KnifesController : MonoBehaviour
     public void Setup(int count)
     {
         levelKnifesCount = count;
+        BottomPanelController.Instance.SetKnifes(count);
         knifesCount = 0;
         canThrow = true;
         InstantiateKnife();

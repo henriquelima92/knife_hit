@@ -50,6 +50,7 @@ public class WheelController : MonoBehaviour
     {
         totalKnifesHit += 1;
         TopPanelController.Instance.SetTotalKnifesHit(totalKnifesHit);
+        BottomPanelController.Instance.SetNewAttachedKnife();
         attachedKnifes += 1;
         if(attachedKnifes == currentLevel.knifesCount)
         {
