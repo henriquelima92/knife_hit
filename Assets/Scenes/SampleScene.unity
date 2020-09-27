@@ -499,7 +499,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 350244671}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1820939726}
+        m_MethodName: HomeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &350244671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,7 +1342,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 979272483}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1820939726}
+        m_MethodName: RestartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &979272483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2308,6 +2330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1496362055}
   - component: {fileID: 1496362056}
+  - component: {fileID: 1496362057}
   m_Layer: 5
   m_Name: DefeatMenu
   m_TagString: Untagged
@@ -2344,6 +2367,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496362054}
   m_CullTransparentMesh: 0
+--- !u!114 &1496362057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496362054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5149799840c0d458c3ea76040085d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelText: {fileID: 1857050685}
+  hitKnifesText: {fileID: 530033149}
 --- !u!1 &1572894203
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,6 +3103,8 @@ MonoBehaviour:
   knife: {fileID: 921058418932967593, guid: aa0f73b85ab632d46b492a4ee61e5eab, type: 3}
   levelKnifesCount: 0
   knifesCount: 0
+  currentKnifeObject: {fileID: 0}
+  currentKnife: {fileID: 0}
 --- !u!4 &2066424211
 Transform:
   m_ObjectHideFlags: 0

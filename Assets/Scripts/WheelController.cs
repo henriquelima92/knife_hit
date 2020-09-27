@@ -18,6 +18,11 @@ public class WheelController : MonoBehaviour
     [SerializeField]
     private int totalKnifesHit = 0;
 
+    public void LooseGame()
+    {
+        DefeatMenuController.Instance.SetKnifesDefeatMenu(totalKnifesHit);
+        StopWheel(true);
+    }
     public void ResetGame()
     {
         totalKnifesHit = 0;

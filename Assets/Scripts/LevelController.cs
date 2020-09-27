@@ -14,6 +14,8 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     private WheelController wheelController;
 
+    private bool hasLost = false;
+
 
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class LevelController : MonoBehaviour
 
         currentLevel = 0;
         totalLevels = 0;
+        hasLost = false;
         knifesController.ResetGame();
         wheelController.ResetGame();
         SetupLevel();
@@ -66,13 +69,18 @@ public class LevelController : MonoBehaviour
 
     public void WinLevel()
     {
-        knifesController.Stop();
-        StartCoroutine(Utilities.StartMethodWithDelay(2f, NextLevel));
+        if(hasLost == false)
+        {
+            knifesController.Stop();
+            StartCoroutine(Utilities.StartMethodWithDelay(2f, NextLevel));
+        }
     }
     public void LooseLevel()
     {
-        wheelController.StopWheel(false);
+        hasLost = true;
+        CanvasController.Instance.ShowDefeatMenu(totalLevels);
+        wheelController.LooseGame();
+        knifesController.ResetGame();
         knifesController.Stop();
-        StartCoroutine(Utilities.StartMethodWithDelay(2f, ResetGame));
     }
 }
