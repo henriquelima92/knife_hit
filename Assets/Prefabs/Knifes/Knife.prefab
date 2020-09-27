@@ -123,3 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   hasHit: 0
+  boxCollider: {fileID: 921058418932967595}

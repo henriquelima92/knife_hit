@@ -7,16 +7,40 @@ public class KnifesController : MonoBehaviour
     [SerializeField]
     private List<Knife> knifes;
     [SerializeField]
-    private int currentKnife = -1;
-    private void Update()
+    private int levelKnifesCount;
+    [SerializeField]
+    private int knifesCount = 0;
+
+    private Knife GetKnifeObject()
     {
-        if(Input.GetMouseButtonDown(0) == true)
+        for (int index = 0; index < knifes.Count; index++)
         {
-            if(currentKnife+1 < knifes.Count)
+            if (knifes[index].gameObject.activeInHierarchy && knifes[index].GetHasHit() == false)
             {
-                currentKnife += 1;
-                StartCoroutine(knifes[currentKnife].Throw());
+                return knifes[index];
             }
+        }
+        return null;
+    }
+    public void ThrowKnife()
+    {
+        if(knifesCount < levelKnifesCount)
+        {
+            StartCoroutine(GetKnifeObject().Throw());
+            knifesCount += 1;
+        }
+    }
+    public void SetLevelKnifes(int levelKnifes)
+    {
+        knifesCount = 0;
+        levelKnifesCount = levelKnifes;
+        for (int index = 0; index < levelKnifesCount; index++)
+        {
+            knifes[index].gameObject.SetActive(true);
+            knifes[index].transform.SetParent(transform);
+            knifes[index].transform.localPosition = Vector3.zero;
+            knifes[index].transform.localEulerAngles = Vector3.zero;
+            knifes[index].KnifeSetup();
         }
     }
 }

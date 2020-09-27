@@ -1,13 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Knife : MonoBehaviour
 {
+    public Action OnHit;
+
     [SerializeField]
-    private float speed = 10f;
+    private float speed = 15f;
     [SerializeField]
-    private bool hasHit = false;
+    private bool hasHit;
+    [SerializeField]
+    private BoxCollider2D boxCollider;
+
+    public void KnifeSetup()
+    {
+        hasHit = false;
+        boxCollider.enabled = true;
+    }
+    public bool GetHasHit()
+    {
+        return hasHit;
+    }
     public IEnumerator Throw()
     {
         while(hasHit == false)
@@ -19,7 +33,7 @@ public class Knife : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         hasHit = true;
-        StopCoroutine(Throw());
+        StopAllCoroutines();
         int hitLayerIndex = collision.gameObject.layer;
 
         if (hitLayerIndex == LayerMask.NameToLayer("Wheel"))

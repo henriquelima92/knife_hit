@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 527043eccbd30a54e86c4d96fff7bee7, type: 3}
-  m_Name: Wheel1_Level4
+  m_Name: Boss1
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5030533844001076196, guid: cf23c7faa11c40e488ddc35fca125a8f, type: 3}
+  wheelPrefab: {fileID: 5030533844001076196, guid: cf23c7faa11c40e488ddc35fca125a8f,
+    type: 3}
   curve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: -180
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -26,8 +27,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 5
+      value: -180
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -37,3 +38,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 0
     m_RotationOrder: 4
+  knifesCount: 11

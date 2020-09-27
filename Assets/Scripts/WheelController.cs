@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WheelController : MonoBehaviour
 {
@@ -9,38 +10,24 @@ public class WheelController : MonoBehaviour
     [SerializeField]
     private GameObject wheel;
     [SerializeField] 
-    private List<WheelAsset> wheelLevels;
-    [SerializeField]
-    private int currentLevel = 0;
+    private List<LevelAsset> wheelLevels;
 
-    // Start is called before the first frame update
-    void Start()
+    public int GetLevelsCount()
     {
-        StartLevel(currentLevel);
+        return wheelLevels.Count > 0 ? wheelLevels.Count : 0;
     }
-
-    // Update is called once per frame
-    void Update()
+    public int GetLevelKnifes(int levelIndex)
     {
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            StopLevel();
-            if (currentLevel + 1 < wheelLevels.Count)
-            {
-                currentLevel += 1;
-                StartLevel(currentLevel);
-            }
-        }
+        return wheelLevels[levelIndex].knifesCount;
     }
-    private void StopLevel()
+    public void StopWheel(int levelIndex)
     {
-        StopCoroutine(Movement(currentLevel));
+        StopAllCoroutines();
         Destroy(wheel);
     }
-
-    private void StartLevel(int levelIndex)
+    public void StartWheel(int levelIndex)
     {
-        wheel = Instantiate(wheelLevels[levelIndex].prefab, Vector3.zero, Quaternion.identity);
+        wheel = Instantiate(wheelLevels[levelIndex].wheelPrefab, Vector3.zero, Quaternion.identity);
         wheel.transform.SetParent(wheelHolder);
         StartCoroutine(Movement(levelIndex));
     }
