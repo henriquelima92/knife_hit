@@ -10,18 +10,7 @@ public class Knife : MonoBehaviour
     private float speed = 15f;
     [SerializeField]
     private bool hasHit;
-    [SerializeField]
-    private BoxCollider2D boxCollider;
 
-    public void KnifeSetup()
-    {
-        hasHit = false;
-        boxCollider.enabled = true;
-    }
-    public bool GetHasHit()
-    {
-        return hasHit;
-    }
     public IEnumerator Throw()
     {
         while(hasHit == false)
@@ -39,11 +28,11 @@ public class Knife : MonoBehaviour
         if (hitLayerIndex == LayerMask.NameToLayer("Wheel"))
         {
             transform.SetParent(collision.transform);
-            //attached knife event
+            collision.transform.parent.GetComponent<WheelController>().AttachKnife();
         }
         else if(hitLayerIndex == LayerMask.NameToLayer("Knife"))
         {
-            //loose level event
+            LevelController.Instance.LooseLevel();
         }
         else if (hitLayerIndex == LayerMask.NameToLayer("Bonus"))
         {

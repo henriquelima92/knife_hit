@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527043eccbd30a54e86c4d96fff7bee7, type: 3}
   m_Name: Boss1
   m_EditorClassIdentifier: 
-  wheelPrefab: {fileID: 5030533844001076196, guid: cf23c7faa11c40e488ddc35fca125a8f,
+  wheelPrefab: {fileID: 5030533844001076196, guid: 3c16d951b8fb4bf4eb4fcc3b2c0f4734,
     type: 3}
   curve:
     serializedVersion: 2

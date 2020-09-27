@@ -6,11 +6,15 @@ using System;
 public class WheelController : MonoBehaviour
 {
     [SerializeField]
+    private int attachedKnifes;
+    [SerializeField]
     private Transform wheelHolder;
     [SerializeField]
     private GameObject wheel;
     [SerializeField] 
     private List<LevelAsset> wheelLevels;
+    [SerializeField]
+    private int levelIndex;
 
     public int GetLevelsCount()
     {
@@ -20,16 +24,27 @@ public class WheelController : MonoBehaviour
     {
         return wheelLevels[levelIndex].knifesCount;
     }
-    public void StopWheel(int levelIndex)
+    public void StopWheel(bool destroy)
     {
         StopAllCoroutines();
-        Destroy(wheel);
+        if(destroy == true) 
+            Destroy(wheel);
     }
     public void StartWheel(int levelIndex)
     {
-        wheel = Instantiate(wheelLevels[levelIndex].wheelPrefab, Vector3.zero, Quaternion.identity);
+        this.levelIndex = levelIndex;
+        attachedKnifes = 0;
+        wheel = Instantiate(wheelLevels[levelIndex].wheelPrefab, transform.position, Quaternion.identity);
         wheel.transform.SetParent(wheelHolder);
         StartCoroutine(Movement(levelIndex));
+    }
+    public void AttachKnife()
+    {
+        attachedKnifes += 1;
+        if(attachedKnifes == wheelLevels[levelIndex].knifesCount)
+        {
+            LevelController.Instance.WinLevel();
+        }
     }
     private IEnumerator Movement(int levelIndex)
     {
