@@ -410,10 +410,18 @@ MonoBehaviour:
       - {fileID: 11400000, guid: df3d831b765c27b4a96b1cf9bb729bcd, type: 2}
     level4:
       levels:
-      - {fileID: 11400000, guid: c8877b39bae1e714f8ec02a1b41f986d, type: 2}
+      - {fileID: 11400000, guid: 58559325d9cb47540b5083b7266853a6, type: 2}
+      - {fileID: 11400000, guid: 565a5d48bf278124ab755d3e9bc304a9, type: 2}
+      - {fileID: 11400000, guid: 4d372976fc5d70f4a9f36fe1442d8441, type: 2}
+      - {fileID: 11400000, guid: 3f44b7a0a11c38b42bd5329a4a033338, type: 2}
+      - {fileID: 11400000, guid: 44b2d0e594b3cc54db55b9f898615c63, type: 2}
     level5:
       levels:
       - {fileID: 11400000, guid: ac8de7dfad874f74ba69a30994f684b0, type: 2}
+      - {fileID: 11400000, guid: 1c11bf4231290d8478bb82fe21f16883, type: 2}
+      - {fileID: 11400000, guid: f6fb17681e038b045bd10fbed752e940, type: 2}
+      - {fileID: 11400000, guid: bdeebd3d368c3f5408637df19ad8d186, type: 2}
+      - {fileID: 11400000, guid: 36b7853d13da43d40ae8befda4284c55, type: 2}
   currentLevel: {fileID: 0}
   totalKnifesHit: 0
 --- !u!4 &347140956
@@ -809,7 +817,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2855,12 +2863,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 900, y: 1800}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2877,7 +2885,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

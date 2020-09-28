@@ -32,11 +32,8 @@ public class Knife : MonoBehaviour
             transform.SetParent(collision.transform);
             hasHit = true;
             StopAllCoroutines();
-            StartCoroutine(Utilities.StartMethodWithDelay(2f, () =>
-            {
-                LevelController.Instance.LooseLevel();    
-                Destroy(gameObject);
-            })); 
+            LevelController.Instance.LooseLevel();    
+            Destroy(gameObject);
         }
         
         else if (hitLayerIndex == LayerMask.NameToLayer("Bonus"))
