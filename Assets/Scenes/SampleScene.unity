@@ -389,7 +389,11 @@ MonoBehaviour:
   levelSelector:
     level1:
       levels:
-      - {fileID: 11400000, guid: 3400e5ab5da9d0c499d1d2d2c607099a, type: 2}
+      - {fileID: 11400000, guid: c8877b39bae1e714f8ec02a1b41f986d, type: 2}
+      - {fileID: 11400000, guid: f709ddfa12409d14099c17fc0cb6b93b, type: 2}
+      - {fileID: 11400000, guid: 4e8b31a110ba3d9439f67bcffb8140aa, type: 2}
+      - {fileID: 11400000, guid: bdac385e6a9dd414997ccf748bd04f01, type: 2}
+      - {fileID: 11400000, guid: 4a96c74c9f7f7aa4b936bb644ad870a4, type: 2}
     level2:
       levels:
       - {fileID: 11400000, guid: 3477695626f9b4441ade5cd452b68963, type: 2}
@@ -399,7 +403,11 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 2e0c5d74536e9074cb4ebb8681a8400b, type: 2}
     level3:
       levels:
-      - {fileID: 11400000, guid: c8877b39bae1e714f8ec02a1b41f986d, type: 2}
+      - {fileID: 11400000, guid: 7cdd0537e79b1664fa9b2e9cb6187398, type: 2}
+      - {fileID: 11400000, guid: 4b9ac78592c5ba74a81ec2f478f10c42, type: 2}
+      - {fileID: 11400000, guid: 64ec7284bc06af445b3fc692a1673cc7, type: 2}
+      - {fileID: 11400000, guid: 74ecea6c338586842b844120604fcb30, type: 2}
+      - {fileID: 11400000, guid: df3d831b765c27b4a96b1cf9bb729bcd, type: 2}
     level4:
       levels:
       - {fileID: 11400000, guid: c8877b39bae1e714f8ec02a1b41f986d, type: 2}
